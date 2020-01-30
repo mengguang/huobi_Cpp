@@ -33,7 +33,7 @@ namespace Huobi {
 
         explicit Decimal(double value) {
             char buf[DECDOUBLE_String] = {0};
-            snprintf(buf, DECDOUBLE_String, "%*g", DECDOUBLE_Pmax, value);
+            snprintf(buf, DECDOUBLE_String, "%.*g", DECDOUBLE_Pmax, value);
             decDoubleFromString(&data, buf, context.get());
         }
 
