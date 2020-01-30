@@ -77,10 +77,12 @@ namespace Huobi {
                 throw HuobiApiException("", "curl_easy_init() Err");
             }
             std::string sBuffer;
-            printf("\n");
-            printf("------request------\n");
-            printf(ptr->getUrl().c_str());
-            printf("\n");
+//            printf("\n");
+//            printf("------request------\n");
+//            printf(ptr->getUrl().c_str());
+//            printf("\n");
+            std::cout << "----------request----------" << std::endl;
+            std::cout << ptr->getUrl() << std::endl;
             curl_easy_setopt(pCurl, CURLOPT_SSLKEYTYPE, "PEM");
             curl_easy_setopt(pCurl, CURLOPT_SSL_VERIFYPEER, 1L);
             curl_easy_setopt(pCurl, CURLOPT_SSL_VERIFYHOST, 1L);
@@ -106,9 +108,11 @@ namespace Huobi {
                 std::cout << "curl_easy_perform() Err" << std::endl;
                 throw HuobiApiException("", "curl_easy_perform() Err");
             }
-            printf("------response------\n");
-            printf(sBuffer.c_str());
-            printf("\n");
+//            printf("------response------\n");
+//            printf(sBuffer.c_str());
+//            printf("\n");
+            std::cout << "----------response----------" << std::endl;
+            std::cout << sBuffer << std::endl;
             JsonDocument djson;
             JsonWrapper json = djson.parseFromString(sBuffer.c_str());
 

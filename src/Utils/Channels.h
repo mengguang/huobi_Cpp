@@ -9,8 +9,8 @@ namespace Huobi {
 
     class Channels {
     public:
-        static char* OP_SUB;
-        static char* OP_REQ;
+        static const char* OP_SUB;
+        static const char* OP_REQ;
 
         static std::string klineChannel(
                 const std::string& symbol, const CandlestickInterval& interval) {
@@ -18,13 +18,13 @@ namespace Huobi {
             return klineChannel(OP_SUB, symbol, interval, 0, 0);
         }
 
-        static std::string klineChannel(char*& op,
+        static std::string klineChannel(const char*& op,
                 const std::string& symbol, const CandlestickInterval& interval) {
             return klineChannel(op, symbol, interval, 0, 0);
         }
 
         static std::string klineChannel(
-                char*& op,
+                const char*& op,
                 const std::string& symbol,
                 const CandlestickInterval& interval,
                 long startTime,
@@ -46,7 +46,7 @@ namespace Huobi {
         }
 
         static std::string tradeChannel(
-                char*& op,
+                const char*& op,
                 const std::string& symbol) {
             JsonWriter writer;
             writer.put(op, "market." + symbol + ".trade.detail");
@@ -59,7 +59,7 @@ namespace Huobi {
         }
 
         static std::string priceDepthChannel(
-                char*& op,
+                const char*& op,
                 const std::string& symbol,
                 const DepthStep& step) {
             JsonWriter writer;
@@ -100,7 +100,7 @@ namespace Huobi {
         }
 
         static std::string tradeStatisticsChannel(
-                char*& op,
+                const char*& op,
                 const std::string& symbol) {
             JsonWriter writer;
             writer.put(op, "market." + symbol + ".detail");
@@ -108,7 +108,7 @@ namespace Huobi {
             return writer.toJsonString();
         }
 
-        static std::string accountListChannel(char*& op) {
+        static std::string accountListChannel(const char*& op) {
             JsonWriter writer;
             writer.put("op", op);
             writer.put("cid", std::to_string(TimeService::getCurrentTimeStamp()));
@@ -117,7 +117,7 @@ namespace Huobi {
         }
 
         static std::string orderListChannel(
-                char*& op,
+                const char*& op,
                 long accountId,
                 const std::string& symbol,
                 OrderType types,
@@ -150,7 +150,7 @@ namespace Huobi {
             return writer.toJsonString();
         }
 
-        static std::string orderDetailChannel(char*& op, long orderId) {
+        static std::string orderDetailChannel(const char*& op, long orderId) {
             JsonWriter writer;
             writer.put("op", op);
             writer.put("cid", std::to_string(TimeService::getCurrentTimeStamp()));
@@ -159,27 +159,27 @@ namespace Huobi {
             return writer.toJsonString();
         }
 
-        static std::string marketBBOChannel(char*& op, const std::string& symbol) {
+        static std::string marketBBOChannel(const char*& op, const std::string& symbol) {
             JsonWriter writer;
             writer.put(op, "market." + symbol + ".bbo");
             writer.put("id", std::to_string(TimeService::getCurrentTimeStamp()));
             return writer.toJsonString();
         }
 
-        static std::string MarketDepthMBP(char*& op, const std::string& symbol, const MBPLevel& level) {
+        static std::string MarketDepthMBP(const char*& op, const std::string& symbol, const MBPLevel& level) {
             JsonWriter writer;
             writer.put(op, "market." + symbol + ".mbp." + level.getValue());
             writer.put("id", std::to_string(TimeService::getCurrentTimeStamp()));
             return writer.toJsonString();
         }
 
-        static std::string subscribeTradeClearingEvent(char*& op, const std::string& symbol) {
+        static std::string subscribeTradeClearingEvent(const char*& op, const std::string& symbol) {
             JsonWriter writer;
             writer.put("action", op);
             writer.put("ch", "trade.clearing#" + symbol);
             return writer.toJsonString();
         }
-        static std::string accountUpdateEvent(char*& op, const AccountsUpdateMode& mode) {
+        static std::string accountUpdateEvent(const char*& op, const AccountsUpdateMode& mode) {
             JsonWriter writer;
             writer.put("action", op);
             writer.put("ch", "accounts.update#" + mode.getValue());
@@ -189,8 +189,8 @@ namespace Huobi {
         
 
     };
-    char* Channels::OP_SUB = "sub";
-    char* Channels::OP_REQ = "req";
+    const char* Channels::OP_SUB = "sub";
+    const char* Channels::OP_REQ = "req";
 }
 #endif /* CHANNELS_H */
 

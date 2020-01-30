@@ -1613,8 +1613,7 @@ namespace Huobi {
         builder.setAdress(temp + builder.getAdress() + tail);
         res->setPostBody(builder.getPostBody());
         res->setUrl(TradingUrl + builder.getAdress());
-        printf(res->getPostBody().c_str());
-        printf("\n");
+        std::cout << res->getPostBody() << std::endl;
         return res;
     }
 
