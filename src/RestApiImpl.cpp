@@ -1615,7 +1615,11 @@ namespace Huobi {
         builder.setAdress(temp + builder.getAdress() + tail);
         res->setPostBody(builder.getPostBody());
         res->setUrl(TradingUrl + builder.getAdress());
-        std::cout << res->getPostBody() << std::endl;
+        if(RestApiInvoke::enable_debug) {
+            std::cout << "----------POST Body:----------" << std::endl;
+            std::cout << res->getPostBody() << std::endl;
+        }
+
         return res;
     }
 
