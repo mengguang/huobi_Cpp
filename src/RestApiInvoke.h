@@ -14,7 +14,7 @@ namespace Huobi {
     public:
         static bool enable_debug;
         static void set_debug(bool debug) {
-            enable_debug = debug;
+            RestApiInvoke::enable_debug = debug;
         }
         static void checkResponse(const JsonWrapper& json) {
             try {
