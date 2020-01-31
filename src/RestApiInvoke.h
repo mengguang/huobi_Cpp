@@ -10,8 +10,11 @@
 namespace Huobi {
 
     class RestApiInvoke {
+        static bool enable_debug;
     public:
-
+        static void set_debug(bool debug) {
+            enable_debug = debug;
+        }
         static void checkResponse(const JsonWrapper& json) {
             try {
                 if (json.containKey("status")) {
@@ -81,8 +84,10 @@ namespace Huobi {
 //            printf("------request------\n");
 //            printf(ptr->getUrl().c_str());
 //            printf("\n");
-            std::cout << "----------request----------" << std::endl;
-            std::cout << ptr->getUrl() << std::endl;
+            if(RestApiInvoke::enable_debug) {
+                std::cout << "----------request----------" << std::endl;
+                std::cout << ptr->getUrl() << std::endl;
+            }
             curl_easy_setopt(pCurl, CURLOPT_SSLKEYTYPE, "PEM");
             curl_easy_setopt(pCurl, CURLOPT_SSL_VERIFYPEER, 1L);
             curl_easy_setopt(pCurl, CURLOPT_SSL_VERIFYHOST, 1L);
@@ -111,8 +116,11 @@ namespace Huobi {
 //            printf("------response------\n");
 //            printf(sBuffer.c_str());
 //            printf("\n");
-            std::cout << "----------response----------" << std::endl;
-            std::cout << sBuffer << std::endl;
+            if(RestApiInvoke::enable_debug) {
+                std::cout << "----------response----------" << std::endl;
+                std::cout << sBuffer << std::endl;
+            }
+
             JsonDocument djson;
             JsonWrapper json = djson.parseFromString(sBuffer.c_str());
 

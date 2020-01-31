@@ -20,7 +20,7 @@ namespace Huobi {
     struct RequestOptions {
    
         std::string url;
-        
+        bool debug = false;
 
     };
 

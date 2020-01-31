@@ -76,6 +76,7 @@ namespace Huobi {
         std::string accessKey;
         std::string secretKey;
         std::string host = "api.huobi.so";
+        bool enable_debug = false;
 
 
     public:
@@ -101,6 +102,7 @@ namespace Huobi {
                 this->TradingUrl = "https://";
                 this->TradingUrl = this->TradingUrl + host + "/api";
             }
+            RestApiInvoke::set_debug(op.debug);
 
         }
 
@@ -127,6 +129,7 @@ namespace Huobi {
                 this->TradingUrl = "https://";
                 this->TradingUrl = this->TradingUrl + host + "/api";
             }
+            RestApiInvoke::set_debug(op.debug);
 
         }
         template <typename T>

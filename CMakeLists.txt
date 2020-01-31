@@ -32,8 +32,6 @@ endif ()
 if (APPLE)
 endif ()
 
-MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
-
 PROJECT(HuobiClient)
 
 set(CURRENT_VERSION 1.0.2)
