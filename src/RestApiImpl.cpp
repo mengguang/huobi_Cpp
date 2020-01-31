@@ -12,6 +12,8 @@
 
 namespace Huobi {
 
+    bool RestApiInvoke::enable_debug = false;
+
     RestApi<long>* RestApiImpl::getExchangeTimestamp() {
         Logger::WriteLog("get time stamp");
         RestApi<long>* res;
