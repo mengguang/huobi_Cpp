@@ -10,8 +10,9 @@
 namespace Huobi {
 
     class RestApiInvoke {
-        static bool enable_debug;
+
     public:
+        static bool enable_debug;
         static void set_debug(bool debug) {
             enable_debug = debug;
         }
