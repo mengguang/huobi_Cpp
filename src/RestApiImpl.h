@@ -90,7 +90,7 @@ namespace Huobi {
             accessKey = "";
             secretKey = "";
             host = GetHost(op.url);
-            if (host.find("api") != -1) {
+            if (host.find("api") != std::string::npos) {
                 this->MarketQueryUrl = "https://";
                 this->MarketQueryUrl += host;
                 this->TradingUrl = "https://";
@@ -116,7 +116,7 @@ namespace Huobi {
             this->accessKey = accessKey;
             this->secretKey = secretKey;
             host = GetHost(op.url);
-            if (host.find("api") != -1) {
+            if (host.find("api") != std::string::npos) {
                 this->MarketQueryUrl = "https://";
                 this->MarketQueryUrl += host;
                 this->TradingUrl = "https://";

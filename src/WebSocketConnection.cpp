@@ -68,7 +68,7 @@ namespace Huobi {
             else
                 ccinfo.path = "/ws/v1";
         } else {
-            if (host.find("api") != -1) {
+            if (host.find("api") != std::string::npos) {
                 ccinfo.path = "/ws";
             } else {
                 ccinfo.path = "/api/ws";
@@ -79,7 +79,7 @@ namespace Huobi {
         ccinfo.origin = "origin";
         ccinfo.host = ccinfo.address;
         ccinfo.ssl_connection = LCCSCF_USE_SSL | LCCSCF_ALLOW_SELFSIGNED | LCCSCF_SKIP_SERVER_CERT_HOSTNAME_CHECK;
-        struct lws* conn = lws_client_connect_via_info(&ccinfo);
+        //struct lws* conn = lws_client_connect_via_info(&ccinfo);
         lineStatus = LineStatus::LINE_ACTIVE;
         lwsl_user("connect_endpoint end\n");
     }

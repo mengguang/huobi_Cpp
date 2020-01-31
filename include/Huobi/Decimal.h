@@ -169,12 +169,12 @@ namespace Huobi {
         decDouble data;
     };
 
-    static std::ostream & operator<<(std::ostream &out, const Decimal& obj) {
+    std::ostream & operator<<(std::ostream &out, const Decimal& obj) {
         out << obj.toString();
         return out;
     }
 
-    static std::istream & operator>>(std::istream &in, Decimal& obj) {
+    std::istream & operator>>(std::istream &in, Decimal& obj) {
         std::string str;
         in >> str;
         obj = Decimal(str.c_str());

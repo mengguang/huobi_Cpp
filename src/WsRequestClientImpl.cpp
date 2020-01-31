@@ -42,7 +42,7 @@ namespace Huobi {
             long endTime,
             const std::function<void(const std::vector<CandlestickEvent>&) >& callback,
             const std::function<void(HuobiApiException&)>& errorHandler) {
-        WebSocketRequest* req = impl->requestCandlestickEvent(autoClose, symbols, interval, startTime, endTime, callback, errorHandler);       
+        //WebSocketRequest* req = impl->requestCandlestickEvent(autoClose, symbols, interval, startTime, endTime, callback, errorHandler);
         
     }
 

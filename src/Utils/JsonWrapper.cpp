@@ -112,7 +112,7 @@ namespace Huobi {
     }
 
     void JsonWrapper::checkSize(int index) const {
-        if (index < 0 && index >= object.Size()) {
+        if (index < 0 && (size_t)index >= object.Size()) {
             throw HuobiApiException(HuobiApiException::INPUT_ERROR, "error size!");
         }
     }

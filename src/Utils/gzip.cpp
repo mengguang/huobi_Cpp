@@ -52,12 +52,13 @@ int gzDecompress(const char *src, int srcLen, const char *dst, int dstLen){
 	strm.next_in = (Bytef *)src;
 	strm.next_out = (Bytef *)dst;
 	 
-	int err=-1, ret=-1;
+	int err=-1;
+	//int ret=-1;
 	err = inflateInit2(&strm, MAX_WBITS+16);
 	if (err == Z_OK){
 	    err = inflate(&strm, Z_FINISH);
 	    if (err == Z_STREAM_END){
-	        ret = strm.total_out;
+	        //ret = strm.total_out;
 	    }
 	    else{
 	        inflateEnd(&strm);

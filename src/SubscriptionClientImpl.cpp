@@ -11,7 +11,7 @@ namespace Huobi {
             void* user,
             void* in,
             size_t len) {
-        static int i = 10;
+        //static int i = 10;
         WebSocketConnection* connection = reinterpret_cast<WebSocketConnection*> (user);
 
         switch (reason) {
