@@ -18,7 +18,7 @@
 
 namespace Huobi {
 
-    class SubscriptionClientImpl : public SubscriptionClient {
+    class SubscriptionClientImpl final : public SubscriptionClient {
     private:
 
         std::string apiKey;

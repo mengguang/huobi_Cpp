@@ -80,6 +80,7 @@ namespace Huobi {
         ccinfo.host = ccinfo.address;
         ccinfo.ssl_connection = LCCSCF_USE_SSL | LCCSCF_ALLOW_SELFSIGNED | LCCSCF_SKIP_SERVER_CERT_HOSTNAME_CHECK;
         struct lws* conn = lws_client_connect_via_info(&ccinfo);
+        (void)conn;
         lineStatus = LineStatus::LINE_ACTIVE;
         lwsl_user("connect_endpoint end\n");
     }
