@@ -16,14 +16,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 
 
-IF (WIN32)
-    MESSAGE(STATUS "Now is windows")
-ELSEIF (APPLE)
-    MESSAGE(STATUS "Now is Apple system.")
-ELSEIF (UNIX)
-    MESSAGE(STATUS "Now is UNIX-like OS's. Including Apple OS X  and CygWin")
-ENDIF ()
-
 if (UNIX AND NOT APPLE)
     set(platform x64)
     set(LINUX TRUE)
